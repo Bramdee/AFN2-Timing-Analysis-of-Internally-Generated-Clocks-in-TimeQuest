@@ -1,0 +1,63 @@
+-- testing inverted clk.
+-- will it instantiate a NOT gate or will it use the inverted clk input of FF?
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+
+entity inverted_clk_gated is
+    iClk             : in std_ulogic;
+    inResetAsync     : in std_ulogic;
+
+    iA               : in std_ulogic;
+    oQa              : out std_ulogic;
+
+    iB               : in std_ulogic;
+    oQb              : out std_ulogic;
+
+end entity;
+
+architecture rtl of inverted_clk_gated is
+    signal sigA, sigB   : std_ulogic;
+    signal Qa, Qb       : std_ulogic;
+    signal nClk         : std_ulogic;
+begin
+
+    -- Experiment 1: Will the usage of the "not" statement instantiate a NOT gate?
+    nClk <= not Clk; -- gated Clk
+
+    DFF_A : process (iClk, inReset) is
+    begin
+        if inResetAsnyc = not('1') then
+            sigA    <= '0';
+            Qa     <= '0';
+        elsif rising_edge(iClk)
+            sigA    <= iA;
+            Qa      <= Qa;
+        elsif rising_edge(nClk)
+            sigA    <= sigA;
+            Qa      <= sigA;
+        end if;
+    end process; 
+    oQa <= Qa;
+
+
+    -- Experiment 2: Will the usage of the "falling_edge()" statement make use of the inverted clk input of DFF?
+    DFF_B : process (iClk, inReset) is
+        begin
+            if inResetAsnyc = not('1') then
+                sigB    <= '0';
+                Qb     <= '0';
+            elsif rising_edge(iClk)
+                sigB    <= iB;
+                Qb      <= Qb;
+            elsif falling_edge(iClk)
+                sigB    <= sigB;
+                Qb      <= sigB;
+            end if;
+        end process; 
+        oQb <= Qb;
+
+
+end architecture;

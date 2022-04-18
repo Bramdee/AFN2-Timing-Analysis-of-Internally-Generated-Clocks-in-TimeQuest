@@ -1,0 +1,29 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "oStrobe0",
+					"strict" : false
+				},
+				{
+					"name" : "oStrobe1",
+					"strict" : false
+				},
+				{
+					"name" : "CLOCK_50",
+					"strict" : false
+				},
+				{
+					"name" : "inResetAsync",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO_0_0",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
