@@ -1,0 +1,82 @@
+-- A design using a static Multiplexed Clock using the ALTCLKCTRL Hard-IP
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+library EnabledClk;
+
+
+entity enabled_clk_gated is
+	port (
+        iClkA			: in std_ulogic;
+		iClkB			: in std_ulogic;
+        inResetAsync    : in std_ulogic;
+		
+		iClkSel			: in std_ulogic;  -- '0' = iClkA; '1' = iClkB
+		
+		iDa				: in std_ulogic;
+		iDb				: in std_ulogic;
+		oQab			: out std_ulogic;
+		oQb				: out std_ulogic);
+
+
+
+end entity;
+
+architecture rtl of enabled_clk_gated is
+	signal Ra, Rb1, Rb2, Rab	: std_ulogic;
+	signal ClkEn				: std_ulogic;
+
+	
+begin
+	
+	-- Instantiation of a ALTCLKCCTRL IP
+	TheEnabledClk0 : entity EnabledClk.EnabledClk
+    port map (
+		inclk 	=> iClk,
+		ena   	=> iEn,
+	    outclk	=> ClkEn);
+
+
+	RegA : process(ClkEn, inResetAsync) is
+	begin
+		if inResetAsync = not('1'); then
+			Ra <= '0';
+		elsif rising_edge(ClkEn) then
+			Ra <= iDa;
+		end if;
+	end process;
+
+	RegB1 : process(ClkEn, inResetAsync) is
+	begin
+		if inResetAsync = not('1'); then
+			Rb1 <= '0';
+		elsif rising_edge(ClkEn) then
+			Rb1 <= iDb;
+		end if;
+	end process;
+
+	RegB2 : process(ClkEn, inResetAsync) is
+	begin
+		if inResetAsync = not('1'); then
+			Rb2 <= '0';
+		elsif rising_edge(ClkEn) then
+			Rb2 <= Rb1;
+		end if;
+	end process;
+
+	RegAB : process(ClkEn, inResetAsync) is
+	begin
+		if inResetAsync = not('1'); then
+			Rab <= '0';
+		elsif rising_edge(ClkEn) then
+			Rab <= Ra and Rb1;
+		end if;
+	end process;
+
+	oQab 	<= Rab;
+	oQb		<= Rb;
+	
+		
+end architecture;

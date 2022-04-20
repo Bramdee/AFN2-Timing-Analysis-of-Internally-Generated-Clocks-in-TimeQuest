@@ -1,0 +1,29 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "oQab",
+					"strict" : false
+				},
+				{
+					"name" : "oQb",
+					"strict" : false
+				},
+				{
+					"name" : "inResetAsync",
+					"strict" : false
+				},
+				{
+					"name" : "iDa",
+					"strict" : false
+				},
+				{
+					"name" : "iDb",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

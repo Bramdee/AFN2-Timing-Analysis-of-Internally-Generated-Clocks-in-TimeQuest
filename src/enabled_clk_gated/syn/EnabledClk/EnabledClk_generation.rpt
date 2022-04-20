@@ -1,0 +1,33 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\Users\Danie\Desktop\Studium\SS2\AFN2_VO\2.Studenten_Tutorials\1.Timing_Analysis_of_Internally_Generated_Clocks_(Ich)\Ergebnis\src\enabled_clk_gated\syn\EnabledClk.qsys --block-symbol-file --output-directory=C:\Users\Danie\Desktop\Studium\SS2\AFN2_VO\2.Studenten_Tutorials\1.Timing_Analysis_of_Internally_Generated_Clocks_(Ich)\Ergebnis\src\enabled_clk_gated\syn\EnabledClk --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading syn/EnabledClk.qsys
+Progress: Reading input file
+Progress: Adding altclkctrl_0 [altclkctrl 21.1]
+Progress: Parameterizing module altclkctrl_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+: EnabledClk.altclkctrl_0: Targeting device family: Cyclone V.
+: EnabledClk.altclkctrl_0: Global clock network allows a clock signal to reach all parts of the chip with the same amount of skew. Input port 'clkselect' can be used to switch between four clock inputs.
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\Users\Danie\Desktop\Studium\SS2\AFN2_VO\2.Studenten_Tutorials\1.Timing_Analysis_of_Internally_Generated_Clocks_(Ich)\Ergebnis\src\enabled_clk_gated\syn\EnabledClk.qsys --synthesis=VHDL --output-directory=C:\Users\Danie\Desktop\Studium\SS2\AFN2_VO\2.Studenten_Tutorials\1.Timing_Analysis_of_Internally_Generated_Clocks_(Ich)\Ergebnis\src\enabled_clk_gated\syn\EnabledClk\synthesis --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading syn/EnabledClk.qsys
+Progress: Reading input file
+Progress: Adding altclkctrl_0 [altclkctrl 21.1]
+Progress: Parameterizing module altclkctrl_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+: EnabledClk.altclkctrl_0: Targeting device family: Cyclone V.
+: EnabledClk.altclkctrl_0: Global clock network allows a clock signal to reach all parts of the chip with the same amount of skew. Input port 'clkselect' can be used to switch between four clock inputs.
+Info: EnabledClk: Generating EnabledClk "EnabledClk" for QUARTUS_SYNTH
+Info: altclkctrl_0: Generating top-level entity EnabledClk_altclkctrl_0.
+Info: altclkctrl_0: "EnabledClk" instantiated altclkctrl "altclkctrl_0"
+Info: EnabledClk: Done "EnabledClk" with 2 modules, 2 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

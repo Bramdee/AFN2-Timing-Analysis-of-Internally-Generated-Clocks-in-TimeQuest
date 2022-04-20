@@ -1,0 +1,35 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\Users\Danie\Desktop\Studium\SS2\AFN2_VO\2.Studenten_Tutorials\1.Timing_Analysis_of_Internally_Generated_Clocks_(Ich)\Ergebnis\src\static_muxed_clk_crossed_gated\syn\MuxedClock.qsys --block-symbol-file --output-directory=C:\Users\Danie\Desktop\Studium\SS2\AFN2_VO\2.Studenten_Tutorials\1.Timing_Analysis_of_Internally_Generated_Clocks_(Ich)\Ergebnis\src\static_muxed_clk_crossed_gated\syn\MuxedClock --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading syn/MuxedClock.qsys
+Progress: Reading input file
+Progress: Adding altclkctrl_0 [altclkctrl 21.1]
+Progress: Parameterizing module altclkctrl_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+: MuxedClock.altclkctrl_0: Targeting device family: Cyclone V.
+: MuxedClock.altclkctrl_0: Global clock network allows a clock signal to reach all parts of the chip with the same amount of skew. Input port 'clkselect' can be used to switch between four clock inputs.
+: MuxedClock.altclkctrl_0: The register mode of port 'ena' is unavailable while 'ena' port not added. 
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\Users\Danie\Desktop\Studium\SS2\AFN2_VO\2.Studenten_Tutorials\1.Timing_Analysis_of_Internally_Generated_Clocks_(Ich)\Ergebnis\src\static_muxed_clk_crossed_gated\syn\MuxedClock.qsys --synthesis=VHDL --output-directory=C:\Users\Danie\Desktop\Studium\SS2\AFN2_VO\2.Studenten_Tutorials\1.Timing_Analysis_of_Internally_Generated_Clocks_(Ich)\Ergebnis\src\static_muxed_clk_crossed_gated\syn\MuxedClock\synthesis --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading syn/MuxedClock.qsys
+Progress: Reading input file
+Progress: Adding altclkctrl_0 [altclkctrl 21.1]
+Progress: Parameterizing module altclkctrl_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+: MuxedClock.altclkctrl_0: Targeting device family: Cyclone V.
+: MuxedClock.altclkctrl_0: Global clock network allows a clock signal to reach all parts of the chip with the same amount of skew. Input port 'clkselect' can be used to switch between four clock inputs.
+: MuxedClock.altclkctrl_0: The register mode of port 'ena' is unavailable while 'ena' port not added. 
+Info: MuxedClock: Generating MuxedClock "MuxedClock" for QUARTUS_SYNTH
+Info: altclkctrl_0: Generating top-level entity MuxedClock_altclkctrl_0.
+Info: altclkctrl_0: "MuxedClock" instantiated altclkctrl "altclkctrl_0"
+Info: MuxedClock: Done "MuxedClock" with 2 modules, 2 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

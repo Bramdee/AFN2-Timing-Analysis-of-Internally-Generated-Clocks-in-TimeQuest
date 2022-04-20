@@ -1,0 +1,30 @@
+-- This file shows how to use the ALTCLKCTRL IP as Enabeld Clock
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+
+entity enabled_clk_gated is
+	port (
+        iClk			: in std_ulogic;
+        inResetAsync    : in std_ulogic;
+		
+		iEn				: in std_ulogic; -- Clock enable
+		oClkEn			: out std_ulogic -- Enabled Clock
+        );
+
+
+
+end entity;
+
+architecture rtl of enabled_clk_gated is
+begin
+		
+	TheEnabledClk0 : entity EnabledClk.EnabledClk
+    port map (
+		inclk 	=> iClk;
+		ena   	=> iEn;
+	    outclk	=> oClkEn);
+		
+end architecture;
