@@ -232,7 +232,7 @@ Dennoch ist dies eine Möglichkeit eine Enabled-Clock zu erzeugen, wie im [Intel
     Folgendes Bild zeigt ein Beispiel, wie die SDC-Datei aussehen könnte:
     ![SDC-Snippet für externe Multiplexed-Clocks](md_pics/sdc_sniped_mux_clk_external.png)
 
-    Für nähere Infos zu diesen Constraints siehe AFN2 Lab03.
+    Zuerst werden mit *create_clock* die beiden externen Multiplexed-Clocks definiert. Anschließend werden sie mit *set_clock_groups* als voneinander unabhängig definiert. Dies ist bei Multiplexed-Clocks nötig, weil immer nur eine der beiden Taktsignale verwendet wird. So wird die Timing-Analyse für beide Taktsignale unabhängig voneinander durchgeführt.
 
 5. Externe Multiplexed-Clocks sind die einfachsten mit denen man zutun haben kann.  
    Wenn Multiplexed-Clocks intern generiert werden, müssen wir zusätzlich in der Kontroll-Logik sicherstellen, dass die Taktssignale korrekt im FPGA ausgewählt werden.
