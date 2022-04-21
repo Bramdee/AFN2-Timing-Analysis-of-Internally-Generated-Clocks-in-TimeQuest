@@ -1,8 +1,8 @@
 # AFN2 Timing Analysis of Internally Generated Clocks in TimeQuest
 
 ## Vorwort
-Dieses Tutorial wurde für die AFN2 ILV des Studienganges ESD (FH OÖ Campus Hagenberg) erstellt.
-In der AFN2 ILV erstellen die Studierenden ein Tutorial mit einem beliebigen Thema passend zu Advanced-FPGA-Design, um sich tiefer mit FPGAs beschäftigen zu können und zu lernen, wie man Tutorials hält, wie es in Firmen üblich ist.
+Dieses Guide wurde für die AFN2 ILV des Studienganges ESD (FH OÖ Campus Hagenberg) erstellt.
+In der AFN2 ILV erstellen die Studierenden eienn Guide mit einem beliebigen Thema passend zu Advanced-FPGA-Design, um sich tiefer mit FPGAs beschäftigen zu können und zu lernen, wie man Guides hält, wie es in Firmen üblich ist.
 
 In der SLL1 LVA war ich in meinem Team zuständig für das FPGA-Design. Für die Kommunikation mit Sensoren habe ich den SPI-Master-VHDL-Code von Digikey ([Link](https://forum.digikey.com/t/spi-master-vhdl/12717)) verwendet, da Design-Reuse Zeit spart.
 Bei der Wahl dieser IP habe ich mir den Implementierung angesehen und bemerkt, dass der SPI-Takt SCLK intern über einen Clock-Divider erzeugt wird.
@@ -16,9 +16,9 @@ Als Hauptquelle wurde das Tech Note "Timing Analysis of Internally Generated Clo
 
 ## Einführung
 
-> **Info:** Vor dem Tutorial wird den LVA-Teilnehmer zur Einführung die Einführung-PowerPoint präsentiert. Diese findet man hier (TODO Github link)
+> **Info:** Vor dem Guide wird den LVA-Teilnehmer zur Einführung die Einführung-PowerPoint präsentiert. Diese findet man hier (TODO Github link)
 
-Moderne FPGA-Designs sind heute größtenteils Synchron-Sequentiell aufgebaut. Üblicherweise verwenden diese externe Taktsignale, wie auch intern generierte Taktsignale. Diese können *Gated* oder *Derived* sein. Dieses Tutorial soll den LVA-Teilnehmern verschiedenen Typen intern generierter Taktsignale näherbringen und Empfehlungen für die Implementierung und Timing-Analyse für Intel FPGAs bieten.
+Moderne FPGA-Designs sind heute größtenteils Synchron-Sequentiell aufgebaut. Üblicherweise verwenden diese externe Taktsignale, wie auch intern generierte Taktsignale. Diese können *Gated* oder *Derived* sein. Dieser Guide soll den LVA-Teilnehmern verschiedenen Typen intern generierter Taktsignale näherbringen und Empfehlungen für die Implementierung und Timing-Analyse für Intel FPGAs bieten.
 
 Generell ist die Verwendung extern erzeugter Taktsignale zu empfehlen. Intern generierte Taktsignale können Funktions- und Timing-Probleme verursachen.
 Takte, die mit Kombinatorik erzeugt werden (Gated-Clocks), können Glitches verursachen, welche zu Hold-Time-Verletzungen führen können.
@@ -44,7 +44,7 @@ Derived-Clocks bestehen aus Registern, Latches oder PLLS (=Timing-Nodes). Sie er
 - Sync-Counter-Clocks
 - PLL-Clocks
 
-## Tutorial
+## Guide
 
 ### Auffrischung: Clock-Skew
 Als Clock-Skew wird der Taktversatz zwischen Registern bezeichnet. Clock-Skew entsteht hauptsächlich durch die Tatsache, dass sich Register an verschiedenen Stellen im Chip befinden und daher unterschiedlich weit von der Taktquelle entfernt sind. Dadurch kommt der Takt unterschiedlich spät bei den Registern an. Unter solchen Umständen kann es zu Timing-Verletzungen kommen.  
@@ -138,7 +138,7 @@ In den meisten Fällen ist es ratsam die für Taktsignal vorgesehenen Inputs zu 
 
 6. Im Falle, dass man eine FPGA hat, der so eine so eine Technologie nicht hat und aus bestimmten Gründen keinen Takt-Eingang verwenden kann, kann man sich mit einem "Work-Arround" helfen.  
 Man kann die Buffered-Clock mit dem Eingang einer PLL verbinden.  
-Auf das wird in diesem Tutorial nicht weiter eingegangen, da neueres FPGAs dieses Problem lösen.
+Auf das wird in diesem Guide nicht weiter eingegangen, da neueres FPGAs dieses Problem lösen.
 
 #### Enabled-Clocks
 1. Dies ist wahrscheinlich die häufigste Situation, wenn es um Gated Clocks geht. Enabled-Clocks sind Taktsignale, die von einer Clock-Aktivierung gesteuert werden.  
